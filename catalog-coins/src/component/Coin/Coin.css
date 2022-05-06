@@ -1,0 +1,25 @@
+.coin {
+  display: flex;
+}
+
+.coin_image-block {
+  width: 120px;
+  margin-left: 30px;
+}
+
+.coin_image-block img {
+  width: 100%;
+}
+
+.coin_info-title {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19px;
+  color: #833ae0;
+}
+
+.coin_info-info {
+font-weight: 400;
+font-size: 12px;
+line-height: 15px; 
+}
