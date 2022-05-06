@@ -1,10 +1,16 @@
 .coin {
   display: flex;
+  margin-right: 150px;
+  margin-bottom: 25px;
+}
+
+.coin:last-child {
+  margin-right: 0;
 }
 
 .coin_image-block {
   width: 120px;
-  margin-left: 30px;
+  margin-right: 30px;
 }
 
 .coin_image-block img {
@@ -19,6 +25,7 @@
 }
 
 .coin_info-info {
+  width: 213px;
 font-weight: 400;
 font-size: 12px;
 line-height: 15px; 
