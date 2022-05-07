@@ -1,22 +1,19 @@
 import React, { Component } from 'react';
-import './ExclusiveCoins.css';
+import './ListCoins.css';
 import store from '../../redux/store';
-import { ApiExclusiveCoins } from '../../api_request/api_request';
-import Coin from '../../component/Coin/Coin';
-import { Route, Routes } from 'react-router-dom';
+import Coin from '../Coin/Coin';
 
-class ExclusiveCoins extends Component {
+class ListCoins extends Component {
 
     state = {
         data: []
     }
 
     componentDidMount = () => {
-        ApiExclusiveCoins();
         store.subscribe(() => {
             const state = store.getState();
             this.setState({
-                data: state.newCoinsThree
+                data: state.newCoins
             });
         });
     }
@@ -24,7 +21,7 @@ class ExclusiveCoins extends Component {
     render() {
         const coins = this.state.data[0];
         return (
-            <div className='exclusive-coins'>
+            <div className='list-coins'>
                 {coins && coins.map((item) => (
                     <Coin {...item} />
                 ))}
@@ -33,4 +30,4 @@ class ExclusiveCoins extends Component {
     }
 }
 
-export default ExclusiveCoins;
+export default ListCoins;

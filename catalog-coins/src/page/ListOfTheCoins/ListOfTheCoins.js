@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import './MainPage.css';
-import СoinSelection from '../../../src/component/СoinSelection/СoinSelection';
-
-class MainPage extends Component {
+import '../MainPage/MainPage.css';
+import ListCoins from '../../component/ListCoins/ListCoins';
+class ListOfTheCoins extends Component {
 
     state = {
         AdvancedFilterButton: false
@@ -24,7 +23,7 @@ class MainPage extends Component {
         return (
             <section className='main-page'>
                 <div className='main-page__container'>
-                    <h1 className='main-page__title'>Homepage</h1>
+                    <h1 className='main-page__title'>List of the coins</h1>
                     <div className='main-page__form-container'>
                         <h4 className='main-page__form-title'>Input field</h4>
                         <form className='main-page__form'>
@@ -41,7 +40,7 @@ class MainPage extends Component {
                         </button>
                     </div>
                     {filter === false ?
-                        <СoinSelection />
+                            <ListCoins/>
                         :
                         <div className='main-page__advanced-filter'>
                             <div className='main-page__advanced-filter-block'>
@@ -99,4 +98,4 @@ class MainPage extends Component {
     }
 }
 
-export default MainPage;
+export default ListOfTheCoins;

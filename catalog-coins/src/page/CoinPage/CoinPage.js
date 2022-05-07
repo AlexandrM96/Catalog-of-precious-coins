@@ -1,12 +1,7 @@
 import React, { Component } from 'react';
-import './Coin.css';
-import { Link } from 'react-router-dom';
+import './CoinPage.css';
 
-class Coin extends Component {
-
-requestCountId = () => {
-
-}
+class CoinPage extends Component {
 
     render() {
         const { Title, Paragraph_One, Img_one } = this.props;
@@ -14,11 +9,9 @@ requestCountId = () => {
             <div className='coin'>
                 <div className='coin_image-block'>
                     <img src={Img_one} alt='coin' />
-                </div> 
+                </div>
                 <div className='coin_info-block'>
-                    <Link className='coin_info-Link' to='/coinPage'>
-                        <h4 onClick={this.requestCountId} className='coin_info-title'>{Title}</h4>
-                    </Link>
+                    <h4 className='coin_info-title'>{Title}</h4>
                     <p className='coin_info-info'>{Paragraph_One}</p>
                 </div>
             </div>
@@ -26,4 +19,4 @@ requestCountId = () => {
     }
 }
 
-export default Coin;
+export default CoinPage;

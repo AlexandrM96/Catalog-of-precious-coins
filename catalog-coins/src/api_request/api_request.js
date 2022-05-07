@@ -1,16 +1,16 @@
 import store from "../redux/store";
 
 //общий запрос
-export function ApiCommemorativeCoins() {
-
-    const url = `http://localhost:5000/commemorative_coins`;
+export function ApiRequestListCoins(adress) {
+console.log(adress);
+    const url = `http://localhost:5000/${adress}`;
     fetch(url)
         .then((response) => response.json())
         .then((data) => {
             store.dispatch({
-                type: 'ADD_API_COMMEMORATIVE_COINS',
+                type: 'ADD_API_COINS',
                 payload: {
-                    ComCoins: data,
+                    Coins: data,
                 }
             })
         }
@@ -21,36 +21,16 @@ export function ApiCommemorativeCoins() {
 }
 
 //общий запрос
-export function ApiInvestmentCoins() {
+export function ApiRequestListCoinsId(adress) {
 
-    const url = `http://localhost:5000/investment_coins`;
+    const url = `http://localhost:5000/${adress}`;
     fetch(url)
         .then((response) => response.json())
         .then((data) => {
             store.dispatch({
-                type: 'ADD_API_iNVESTMENT_COINS',
+                type: 'ADD_API_ID_COIN',
                 payload: {
-                    InvCoins: data,
-                }
-            })
-        }
-        )
-        .catch((error) => {
-            console.error('Error:', error);
-        });
-}
-
-//общий запрос
-export function ApiExclusiveCoins() {
-
-    const url = `http://localhost:5000/exclusive_coins`;
-    fetch(url)
-        .then((response) => response.json())
-        .then((data) => {
-            store.dispatch({
-                type: 'ADD_API_EXCLUSIVE_COINS',
-                payload: {
-                    ExcCoins: data,
+                    Coins: data,
                 }
             })
         }
