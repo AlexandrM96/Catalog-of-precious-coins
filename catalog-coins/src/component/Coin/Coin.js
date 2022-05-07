@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './Coin.css';
 import { Link } from 'react-router-dom';
-import IMG from '../../image_counts/25 cents_1.png';
+import IMG from '../../../src/image_counts/Botswana_1.png';
 
 class Coin extends Component {
 
@@ -13,7 +13,9 @@ class Coin extends Component {
                     <img src={IMG} alt='coin' />
                 </div>
                 <div className='coin_info-block'>
-                    <h4 className='coin_info-title'>{Title}</h4>
+                    <Link className='coin_info-Link' to='/coin'>
+                        <h4 className='coin_info-title'>{Title}</h4>
+                    </Link>
                     <p className='coin_info-info'>{Paragraph_One}</p>
                 </div>
             </div>

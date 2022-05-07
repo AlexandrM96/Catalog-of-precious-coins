@@ -13,6 +13,10 @@
   margin-right: 30px;
 }
 
+.coin_info-Link {
+text-decoration: none;
+}
+
 .coin_image-block img {
   width: 100%;
 }
