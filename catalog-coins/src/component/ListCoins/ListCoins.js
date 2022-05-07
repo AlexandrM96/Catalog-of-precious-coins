@@ -17,13 +17,19 @@ class ListCoins extends Component {
             });
         });
     }
-
+   
+    click = () => {
+        console.log(this.state.data);// показывает стейт
+    }
     render() {
         const coins = this.state.data[0];
         return (
             <div className='list-coins'>
+                <button onClick={this.click}></button>
                 {coins && coins.map((item) => (
-                    <Coin {...item} />
+                    <div className='coin' key={item.id}>
+                        <Coin {...item} />
+                    </div>
                 ))}
             </div>
         )

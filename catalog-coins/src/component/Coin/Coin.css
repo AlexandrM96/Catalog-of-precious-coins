@@ -1,12 +1,3 @@
-.coin {
-  display: flex;
-  margin-right: 150px;
-  margin-bottom: 25px;
-}
-
-.coin:last-child {
-  margin-right: 0;
-}
 
 .coin_image-block {
   width: 120px;

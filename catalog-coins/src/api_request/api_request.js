@@ -2,7 +2,7 @@ import store from "../redux/store";
 
 //общий запрос
 export function ApiRequestListCoins(adress) {
-console.log(adress);
+    
     const url = `http://localhost:5000/${adress}`;
     fetch(url)
         .then((response) => response.json())
@@ -20,17 +20,17 @@ console.log(adress);
         });
 }
 
-//общий запрос
-export function ApiRequestListCoinsId(adress) {
+//запрос по id
+export function ApiRequestListCoinsId(id) {
 
-    const url = `http://localhost:5000/${adress}`;
+    const url = `http://localhost:5000/coins/${id}`;
     fetch(url)
         .then((response) => response.json())
         .then((data) => {
             store.dispatch({
                 type: 'ADD_API_ID_COIN',
                 payload: {
-                    Coins: data,
+                    IdCoin: data,
                 }
             })
         }

@@ -7,24 +7,26 @@ import CommemorativeCoins from '../../../src/component/СoinSelection/img/Looney
 import { ApiRequestListCoins } from '../../api_request/api_request';
 
 class СoinSelection extends Component {
-state = {
-    data: []
-}
-bullionCoins = () =>{
-    const adress = 'investment_coins';
-    ApiRequestListCoins(adress);
-}
+    state = {
+        data: []
+    }
 
-exclusiveCoins = () =>{
-    const adress = 'exclusive_coins';
-    ApiRequestListCoins(adress);
-}
+    bullionCoins = () => {
+        const adress = 'investment_coins';
+        return ApiRequestListCoins(adress);
+    }
 
-commemorativeCoins = () =>{
-    const adress = 'commemorative_coins'
-    ApiRequestListCoins(adress);
+    exclusiveCoins = () => {
+        const adress = 'exclusive_coins';
+        return ApiRequestListCoins(adress);
+    }
+
+    commemorativeCoins = () => {
+        const adress = 'commemorative_coins';
+        return ApiRequestListCoins(adress);
+
+    }
     
-}
     render() {
         return (
             <section className='coin-selection'>

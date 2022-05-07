@@ -1,14 +1,10 @@
-const addCommemorativeList = {
+const addCoins = {
     type: 'ADD_API_COINS',
     text: 'Add Coins'
 }
 
-// const addInvestmentList = {
-//     type: 'ADD_API_iNVESTMENT_COINS',
-//     text: 'List Coins'
-// }
+const addIdCoin = {
+    type: 'ADD_API_ID_COIN',
+    text: 'Id Coins'
+}
 
-// const addExclusiveList = {
-//     type: 'ADD_API_EXCLUSIVE_COINS',
-//     text: 'List Coins'
-// }

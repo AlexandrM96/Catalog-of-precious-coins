@@ -1,21 +1,19 @@
 const initialState = {
-    arrCoins: []
+    arrCoins: [],
+    idCoin: []
 }
 
 function reducer(state = initialState, action) {
     switch (action.type) {
         case 'ADD_API_COINS':
-            const api = action.payload.Coins;
-            const newCoins = [...state.arrCoins, api];
+            const apiOne = action.payload.Coins;
+            const newCoins = [...state.arrCoins, apiOne];
+            console.log(newCoins);
             return { ...state, newCoins }
-        case 'ADD_API_iNVESTMENT_COINS':
-            const apiTwo = action.payload.InvCoins;
-            const newCoinsTwo = [...state.iNVESTMENT, apiTwo];
-            return { ...state, newCoinsTwo }
-        case 'ADD_API_EXCLUSIVE_COINS':
-            const apiThree = action.payload.ExcCoins;
-            const newCoinsThree = [...state.EXCLUSIVE, apiThree];
-            return { ...state, newCoinsThree }
+        case 'ADD_API_ID_COIN':
+            const apiTwo = action.payload.IdCoin;
+            const newCoinTwo = [...state.idCoin, apiTwo];
+            return { ...state, newCoinTwo }
         default:
             return state;
     }
