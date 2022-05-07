@@ -25,23 +25,34 @@ connection.connect((err) => {
 });
 
 app.get('/commemorative_coins', (req, res) => {
-    connection.query('SELECT * FROM archive_alexandr.commemorative_coins;',
+    connection.query('SELECT * FROM archive_alexandr.coins;',
         (err, data) => {
             if (err) return res.status(500);
-            res.json(data);
+            const result = data.filter((item)=> item.Chapter === 'Commemorative Coins')
+            res.json(result);
         })
 });
 
 app.get('/investment_coins', (req, res) => {
-    connection.query('SELECT * FROM archive_alexandr.investment_coins;',
+    connection.query('SELECT * FROM archive_alexandr.coins;',
         (err, data) => {
             if (err) return res.status(500);
-            res.json(data);
+            const result = data.filter((item)=> item.Chapter === 'Investment Coins')
+            res.json(result);
         })
 });
 
 app.get('/exclusive_coins', (req, res) => {
-    connection.query('SELECT * FROM archive_alexandr.exclusive_coins;',
+    connection.query('SELECT * FROM archive_alexandr.coins;',
+        (err, data) => {
+            if (err) return res.status(500);
+            const result = data.filter((item)=> item.Chapter === 'Exclusive Coins')
+            res.json(result);
+        })
+});
+
+app.get('/coins/:id', (req, res) => {
+    connection.query(`SELECT * FROM archive_alexandr.coins WHERE id = ${req.params.id};`,
         (err, data) => {
             if (err) return res.status(500);
             res.json(data);
