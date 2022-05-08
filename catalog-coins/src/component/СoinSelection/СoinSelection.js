@@ -7,6 +7,7 @@ import CommemorativeCoins from '../../../src/component/СoinSelection/img/Looney
 import { ApiRequestListCoins } from '../../api_request/api_request';
 
 class СoinSelection extends Component {
+    
     state = {
         data: []
     }
@@ -26,7 +27,7 @@ class СoinSelection extends Component {
         return ApiRequestListCoins(adress);
 
     }
-    
+
     render() {
         return (
             <section className='coin-selection'>

@@ -39,3 +39,23 @@ export function ApiRequestListCoinsId(id) {
             console.error('Error:', error);
         });
 }
+
+//запрос по инпуту
+export function ApiRequestListCoinsName(name) {
+
+    const url = `http://localhost:5000/coin/${name}`;
+    fetch(url)
+        .then((response) => response.json())
+        .then((data) => {
+            store.dispatch({
+                type: 'ADD_API_COINS',
+                payload: {
+                    Coins: data,
+                }
+            })
+        }
+        )
+        .catch((error) => {
+            console.error('Error:', error);
+        });
+}
