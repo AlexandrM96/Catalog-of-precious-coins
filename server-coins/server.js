@@ -51,6 +51,7 @@ app.get('/exclusive_coins', (req, res) => {
         })
 });
 
+//полная информация по монете
 app.get('/coins/:id', (req, res) => {
     connection.query(`SELECT * FROM archive_alexandr.coins WHERE id = ${req.params.id};`,
         (err, data) => {
@@ -58,6 +59,16 @@ app.get('/coins/:id', (req, res) => {
             res.json(data);
         })
 });
+
+//ответ по инпуту
+app.get('/coin/:id', (req, res) => {
+    connection.query(`SELECT * FROM archive_alexandr.coins WHERE Title = '${req.params.id}';`,
+        (err, data) => {
+            if (err) return res.status(500);
+            res.json(data);
+        })
+});
+
 
 
 
