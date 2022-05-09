@@ -7,8 +7,23 @@ import { Link } from 'react-router-dom';
 class ListOfTheCoins extends Component {
 
     state = {
-        AdvancedFilterButton: false
+        AdvancedFilterButton: false,
+        quality: "",
+        country: "",
+        metal: "",
+        from_year: "",
+        to_year: "",
+        from_price: "",
+        to_price: "",
     }
+
+    searhCoin = (e) => {
+        this.setState({
+            [e.target.name]: e.target.value
+        });
+    };
+
+    // handleChange = 
 
     clickAdvancedFilterButton = () => {
         this.state.AdvancedFilterButton === false ?
@@ -23,6 +38,7 @@ class ListOfTheCoins extends Component {
 
     render() {
         const filter = this.state.AdvancedFilterButton;
+        console.log(this.state);
         return (
             <section className='main-page'>
                 <div className='main-page__container'>
@@ -46,13 +62,18 @@ class ListOfTheCoins extends Component {
                         </button>
                     </div>
                     {filter === false ?
-                        <ListCoins />
+                        <ListCoins {...this.state}/>
                         :
                         <div className='main-page__advanced-filter'>
                             <div className='main-page__advanced-filter-block'>
                                 <form className='main-page__advanced-filter-form'>
                                     <h5 className='main-page__advanced-filter-title'>Issuing country</h5>
-                                    <select className='main-page__advanced-filter-select'>
+                                    <select
+                                        id="country"
+                                        name="country"
+                                        onChange={this.searhCoin}
+                                        className='main-page__advanced-filter-select'>
+                                        <option value=""></option>
                                         <option value="CANADA">Canada</option>
                                         <option value="China">China</option>
                                         <option value="cat">Cat</option>
@@ -77,14 +98,24 @@ class ListOfTheCoins extends Component {
                                         <option value="the Republic of Vietnam">the Republic of Vietnam</option>
                                     </select>
                                     <h5 className='main-page__advanced-filter-title'>Metal</h5>
-                                    <select className='main-page__advanced-filter-select'>
+                                    <select
+                                        id="metal"
+                                        name="metal"
+                                        onChange={this.searhCoin}
+                                        className='main-page__advanced-filter-select'>
+                                        <option value=""></option>
                                         <option value="gold">Gold</option>
                                         <option value="nickel">Nickel</option>
                                         <option value="steel">Steel</option>
                                         <option value="silver">Silver</option>
                                     </select>
                                     <h5 className='main-page__advanced-filter-title'>Quality of the coin</h5>
-                                    <select className='main-page__advanced-filter-select'>
+                                    <select
+                                        id="quality"
+                                        name="quality"
+                                        onChange={this.searhCoin}
+                                        className='main-page__advanced-filter-select'>
+                                        <option value=""></option>
                                         <option value="BU">BU</option>
                                     </select>
                                 </form>
@@ -94,19 +125,31 @@ class ListOfTheCoins extends Component {
                                     <h5 className='main-page__advanced-filter-title'>Price</h5>
                                     <div className='main-page__advanced-filter-form-block'>
                                         <div className='main-page__advanced-filter-form-input-block'>
-                                            from <input className='main-page__advanced-filter-form-input' />
+                                            from <input
+                                                name='from_price'
+                                                onChange={this.searhCoin}
+                                                className='main-page__advanced-filter-form-input' />
                                         </div>
                                         <div className='main-page__advanced-filter-form-input-block'>
-                                            to <input className='main-page__advanced-filter-form-input' />
+                                            to <input
+                                                name='to_price'
+                                                onChange={this.searhCoin}
+                                                className='main-page__advanced-filter-form-input' />
                                         </div>
                                     </div>
                                     <h5 className='main-page__advanced-filter-title'>Year of issue</h5>
                                     <div className='main-page__advanced-filter-form-block'>
                                         <div className='main-page__advanced-filter-form-input-block'>
-                                            from <input className='main-page__advanced-filter-form-input' />
+                                            from <input
+                                                name='from_year'
+                                                onChange={this.searhCoin}
+                                                className='main-page__advanced-filter-form-input' />
                                         </div>
                                         <div className='main-page__advanced-filter-form-input-block'>
-                                            to <input className='main-page__advanced-filter-form-input' />
+                                            to <input
+                                                name='to_year'
+                                                onChange={this.searhCoin}
+                                                className='main-page__advanced-filter-form-input' />
                                         </div>
                                     </div>
                                 </form>

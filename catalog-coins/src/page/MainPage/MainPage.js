@@ -6,8 +6,21 @@ import Search from '../../component/Search/Search';
 class MainPage extends Component {
 
     state = {
-        AdvancedFilterButton: false
+        AdvancedFilterButton: false,
+        quality: "",
+        country: "",
+        metal: "",
+        from_year: "",
+        to_year: "",
+        from_price: "",
+        to_price: "",
     }
+
+    searhCoin = (e) => {
+        this.setState({
+            [e.target.name]: e.target.value
+        });
+    };
 
     clickAdvancedFilterButton = () => {
         this.state.AdvancedFilterButton === false ?
@@ -42,9 +55,10 @@ class MainPage extends Component {
                         :
                         <div className='main-page__advanced-filter'>
                             <div className='main-page__advanced-filter-block'>
-                            <form className='main-page__advanced-filter-form'>
+                                <form className='main-page__advanced-filter-form'>
                                     <h5 className='main-page__advanced-filter-title'>Issuing country</h5>
                                     <select className='main-page__advanced-filter-select'>
+                                        <option value="Issuing country">Issuing country</option>
                                         <option value="CANADA">Canada</option>
                                         <option value="China">China</option>
                                         <option value="cat">Cat</option>
@@ -70,6 +84,7 @@ class MainPage extends Component {
                                     </select>
                                     <h5 className='main-page__advanced-filter-title'>Metal</h5>
                                     <select className='main-page__advanced-filter-select'>
+                                        <option value="Metal">Metal</option>
                                         <option value="gold">Gold</option>
                                         <option value="nickel">Nickel</option>
                                         <option value="steel">Steel</option>
@@ -77,6 +92,7 @@ class MainPage extends Component {
                                     </select>
                                     <h5 className='main-page__advanced-filter-title'>Quality of the coin</h5>
                                     <select className='main-page__advanced-filter-select'>
+                                        <option value="Quality of the coin">Quality of the coin</option>
                                         <option value="BU">BU</option>
                                     </select>
                                 </form>

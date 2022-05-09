@@ -42,8 +42,8 @@ export function ApiRequestListCoinsId(id) {
 
 //запрос по инпуту
 export function ApiRequestListCoinsName(name) {
-
-    const url = `http://localhost:5000/coin/${name}`;
+    let url = `http://localhost:5000/coin/${name}`
+    name === '' ? url = `http://localhost:5000/coins` :  url = `http://localhost:5000/coin/${name}`;
     fetch(url)
         .then((response) => response.json())
         .then((data) => {
