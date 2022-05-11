@@ -88,7 +88,7 @@ app.get('/coinsprice/:from/:to', (req, res) => {
         })
 });
 
-//фильтрация по году AND `age` BETWEEN 64 AND 99
+//фильтрация по году 
 app.get('/coinsyear/:from/:to', (req, res) => {
     console.log(req.params);
     connection.query(`SELECT * FROM archive_alexandr.coins WHERE Year_Year BETWEEN '${req.params.from}' AND '${req.params.to}';`,
@@ -98,7 +98,7 @@ app.get('/coinsyear/:from/:to', (req, res) => {
         })
 });
 
-//фильтрация по году и цене
+//фильтрация по году и стоимости
 app.get('/coinsYearAndPrice/:fromP/:toP/:fromY/:toY', (req, res) => {
     console.log(req.params);
     connection.query(`SELECT * FROM archive_alexandr.coins WHERE Year_Year BETWEEN '${req.params.fromY}' AND '${req.params.toY}'
