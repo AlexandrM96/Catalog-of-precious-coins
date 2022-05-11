@@ -39,3 +39,20 @@
   background: #9255e2;
   cursor: pointer;
 }
+
+@media screen and (max-width: 819px) {
+  .search__form-title {
+    font-size: 12px;
+    margin-top: 0px;
+  }
+  .search__form-input {
+    width: 239px;
+    margin-right: 10px;
+    padding: 8px;
+    margin-top: 0px;
+  }
+
+  .search__form-button {
+    padding: 15px 30px;
+}
+}

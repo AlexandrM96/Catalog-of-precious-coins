@@ -8,11 +8,12 @@ function reducer(state = initialState, action) {
         case 'ADD_API_COINS':
             const apiOne = action.payload.Coins;
             const newCoins = [...state.arrCoins, apiOne];
-            console.log(newCoins);
+            console.log(newCoins, state.newCoinsTwo);
             return { ...state, newCoins }
         case 'ADD_API_ID_COIN':
             const apiTwo = action.payload.IdCoin;
             const newCoinTwo = [...state.idCoin, apiTwo];
+            console.log(state.newCoins, state.newCoinsTwo);
             return { ...state, newCoinTwo }
         default:
             return state;

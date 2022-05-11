@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import './ListCoins.css';
 import store from '../../redux/store';
 import Coin from '../Coin/Coin';
-import userEvent from '@testing-library/user-event';
 
 class ListCoins extends Component {
 
@@ -13,22 +12,22 @@ class ListCoins extends Component {
     componentDidMount = () => {
         store.subscribe(() => {
             const state = store.getState();
-            this.setState({
-                data: state.newCoins
+            state.newCoins && this.setState({
+                data: state.newCoins[0]
             });
         });
     }
 
     click = () => {
-        console.log(this.state.data);// показывает стейт
+            console.log('dataaa',this.state.data);// показывает стейт
     }
     render() {
-        const coins = this.state.data[0];
+        const coins = this.state.data;
         const { metal, country, quality } = this.props;
         console.log('propssss', this.props);
         return (
             <div className='list-coins'>
-                <button onClick={this.click}></button>
+                {/* <button onClick={this.click}>тест стейта</button> */}
                 {coins && coins.filter((item) =>
                     (item.Composition === metal ?
                         metal : !metal)

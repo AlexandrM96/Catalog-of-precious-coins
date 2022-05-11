@@ -40,3 +40,21 @@
     transform: rotate(360deg);
   }
 }
+
+@media screen and (min-width: 820px) and (max-width: 1279px) {
+  .App {
+    width: 806px;
+    padding: 5px;
+    margin: 0px;
+  }
+}
+
+@media screen and (max-width: 819px) {
+
+  .App {
+    width: 390px;
+    padding: 5px;
+    box-sizing: border-box;
+  }
+}
+
