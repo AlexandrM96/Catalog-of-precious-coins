@@ -1,13 +1,10 @@
 import React, { Component } from 'react';
 import './СoinSelection.css';
 import { Link } from 'react-router-dom';
-import BullionCoins from '../../../src/component/СoinSelection/img/South_Vietnamese_Dong_1.png';
-import ExclusiveCoins from '../../../src/component/СoinSelection/img/ISK_2.png';
-import CommemorativeCoins from '../../../src/component/СoinSelection/img/Looney_1.png';
 import { ApiRequestListCoins } from '../../api_request/api_request';
 
 class СoinSelection extends Component {
-    
+
     state = {
         data: []
     }
@@ -37,7 +34,7 @@ class СoinSelection extends Component {
                         <button onClick={this.bullionCoins} className='coin-selection__block-button'>Show all &gt;</button>
                     </Link>
                     <div className='coin-selection__block-image'>
-                        <img src={BullionCoins} alt='coin' />
+                        <img src='image_counts/South Vietnamese Dong_1.png' alt='Bullion coins' />
                     </div>
                 </div>
                 <div className='coin-selection__block'>
@@ -46,7 +43,7 @@ class СoinSelection extends Component {
                         <button onClick={this.exclusiveCoins} className='coin-selection__block-button'>Show all &gt;</button>
                     </Link>
                     <div className='coin-selection__block-image'>
-                        <img src={ExclusiveCoins} alt='coin' />
+                        <img src='image_counts/ISK_2.png' alt='Exclusive coins' />
                     </div>
                 </div>
                 <div className='coin-selection__block'>
@@ -55,7 +52,7 @@ class СoinSelection extends Component {
                         <button onClick={this.commemorativeCoins} className='coin-selection__block-button'>Show all &gt;</button>
                     </Link>
                     <div className='coin-selection__block-image'>
-                        <img src={CommemorativeCoins} alt='coin' />
+                        <img src='image_counts/Looney_1.png' alt='Commemorative coins' />
                     </div>
                 </div>
             </section>

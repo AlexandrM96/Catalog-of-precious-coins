@@ -11,10 +11,10 @@ class ListOfTheCoins extends Component {
         quality: "",
         country: "",
         metal: "",
-        from_year: "",
-        to_year: "",
-        from_price: "",
-        to_price: "",
+        from_year: 1,
+        to_year: 2023,
+        from_price: 1,
+        to_price: 2000
     }
 
     searhCoin = (e) => {
@@ -22,8 +22,6 @@ class ListOfTheCoins extends Component {
             [e.target.name]: e.target.value
         });
     };
-
-    // handleChange = 
 
     clickAdvancedFilterButton = () => {
         this.state.AdvancedFilterButton === false ?
@@ -51,18 +49,22 @@ class ListOfTheCoins extends Component {
                         <p>List of the coins</p>
                     </div>
                     <div className='main-page__form-container'>
-                        <Search />
+                        <Search {...this.state} />
                     </div>
                     <div className='main-page__Coins-filter'>
                         <button
                             className='main-page__Coins-filter-button'
                             onClick={this.clickAdvancedFilterButton}>
                             Advanced filter
-                            <span>&lt;</span>
                         </button>
+                        {filter === false ?
+                            <span className='main-page__Coins-filter-span'>&#709;</span>
+                            :
+                            <span className='main-page__Coins-filter-span'>&#708;</span>
+                        }
                     </div>
                     {filter === false ?
-                        <ListCoins {...this.state}/>
+                        <ListCoins {...this.state} />
                         :
                         <div className='main-page__advanced-filter'>
                             <div className='main-page__advanced-filter-block'>
@@ -126,12 +128,14 @@ class ListOfTheCoins extends Component {
                                     <div className='main-page__advanced-filter-form-block'>
                                         <div className='main-page__advanced-filter-form-input-block'>
                                             from <input
+                                                type='number'
                                                 name='from_price'
                                                 onChange={this.searhCoin}
                                                 className='main-page__advanced-filter-form-input' />
                                         </div>
                                         <div className='main-page__advanced-filter-form-input-block'>
                                             to <input
+                                                type='number'
                                                 name='to_price'
                                                 onChange={this.searhCoin}
                                                 className='main-page__advanced-filter-form-input' />
@@ -141,12 +145,14 @@ class ListOfTheCoins extends Component {
                                     <div className='main-page__advanced-filter-form-block'>
                                         <div className='main-page__advanced-filter-form-input-block'>
                                             from <input
+                                                type='number'
                                                 name='from_year'
                                                 onChange={this.searhCoin}
                                                 className='main-page__advanced-filter-form-input' />
                                         </div>
                                         <div className='main-page__advanced-filter-form-input-block'>
                                             to <input
+                                                type='number'
                                                 name='to_year'
                                                 onChange={this.searhCoin}
                                                 className='main-page__advanced-filter-form-input' />

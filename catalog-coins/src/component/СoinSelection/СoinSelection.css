@@ -39,7 +39,7 @@
   width: 100%;
 }
 
-@media screen and (min-width: 820px) and (max-width: 1279px) {
+@media screen and (max-width: 1279px) {
   .coin-selection__block {
     margin-right: 100px;
   }
@@ -64,6 +64,7 @@
 
   .coin-selection__block-title {
     font-size: 19px;
+    margin-bottom: 3px;
   }
 
   .coin-selection__block-image {

@@ -67,7 +67,7 @@
   text-decoration-line: underline;
 }
 
-@media screen and (min-width: 820px) and (max-width: 1279px) {
+@media screen and (max-width: 1279px) {
   .coin-page {
     flex-direction: column-reverse;
   }
@@ -84,9 +84,9 @@
     margin-top: 10px;
   }
 
-
-
-
+  .coin-page_link-container {
+    margin-top: 25px;
+  }
 }
 
 @media screen and (max-width: 819px) {

@@ -10,10 +10,10 @@ class MainPage extends Component {
         quality: "",
         country: "",
         metal: "",
-        from_year: "",
-        to_year: "",
-        from_price: "",
-        to_price: "",
+        from_year: 1,
+        to_year: 2023,
+        from_price: 1,
+        to_price: 2000,
     }
 
     searhCoin = (e) => {
@@ -40,15 +40,19 @@ class MainPage extends Component {
                 <div className='main-page__container'>
                     <h1 className='main-page__title'>Homepage</h1>
                     <div className='main-page__form-container'>
-                        <Search />
+                        <Search {...this.state} />
                     </div>
                     <div className='main-page__Coins-filter'>
                         <button
                             className='main-page__Coins-filter-button'
                             onClick={this.clickAdvancedFilterButton}>
                             Advanced filter
-                            <span>&lt;</span>
                         </button>
+                        {filter === false ?
+                            <span className='main-page__Coins-filter-span'>&#709;</span>
+                            :
+                            <span className='main-page__Coins-filter-span'>&#708;</span>
+                        }
                     </div>
                     {filter === false ?
                         <СoinSelection />
@@ -102,19 +106,35 @@ class MainPage extends Component {
                                     <h5 className='main-page__advanced-filter-title'>Price</h5>
                                     <div className='main-page__advanced-filter-form-block'>
                                         <div className='main-page__advanced-filter-form-input-block'>
-                                            from <input className='main-page__advanced-filter-form-input' />
+                                            from <input
+                                                type='number'
+                                                name='from_price'
+                                                onChange={this.searhCoin}
+                                                className='main-page__advanced-filter-form-input' />
                                         </div>
                                         <div className='main-page__advanced-filter-form-input-block'>
-                                            to <input className='main-page__advanced-filter-form-input' />
+                                            to <input
+                                                type='number'
+                                                name='to_price'
+                                                onChange={this.searhCoin}
+                                                className='main-page__advanced-filter-form-input' />
                                         </div>
                                     </div>
                                     <h5 className='main-page__advanced-filter-title'>Year of issue</h5>
                                     <div className='main-page__advanced-filter-form-block'>
                                         <div className='main-page__advanced-filter-form-input-block'>
-                                            from <input className='main-page__advanced-filter-form-input' />
+                                            from <input
+                                                type='number'
+                                                name='from_year'
+                                                onChange={this.searhCoin}
+                                                className='main-page__advanced-filter-form-input' />
                                         </div>
                                         <div className='main-page__advanced-filter-form-input-block'>
-                                            to <input className='main-page__advanced-filter-form-input' />
+                                            to <input
+                                                type='number'
+                                                name='to_year'
+                                                onChange={this.searhCoin}
+                                                className='main-page__advanced-filter-form-input' />
                                         </div>
                                     </div>
                                 </form>

@@ -69,7 +69,7 @@ class CoinPage extends Component {
                                     </tr>
                                     <tr>
                                         <td>Price</td>
-                                        <td>{item.Price}</td>
+                                        <td>{item.Price}$</td>
                                     </tr>
                                 </tbody>
                             </table>

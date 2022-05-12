@@ -19,22 +19,30 @@ class ListCoins extends Component {
     }
 
     click = () => {
-            console.log('dataaa',this.state.data);// показывает стейт
+        console.log('dataaa', +this.state.data);// показывает стейт
     }
+    
     render() {
         const coins = this.state.data;
-        const { metal, country, quality } = this.props;
+        const { metal, country, quality, from_price, to_price, from_year, to_year } = this.props;
         console.log('propssss', this.props);
+        console.log('prase', +from_price);
         return (
             <div className='list-coins'>
                 {/* <button onClick={this.click}>тест стейта</button> */}
                 {coins && coins.filter((item) =>
                     (item.Composition === metal ?
                         metal : !metal)
-                            && (country === "" ?
-                            true : country === item.Issuing_Country ? country : !country)
-                                && (quality === "" ?
-                                true : quality === item.Quality ? quality : !quality)
+                    && (country === "" ?
+                        true : country === item.Issuing_Country ? country : !country)
+                    && (quality === "" ?
+                        true : quality === item.Quality ? quality : !quality)
+                    && (+from_price === 1 && +to_price === 2000 ?
+                        true : +from_price <= +item.Price && +to_price >= +item.Price ?
+                            +from_price || +to_price : !from_price || !to_price)
+                    && (+from_year === 1 && +to_year === 2023 ?
+                        true : +from_year <= +item.Year_Year && +to_year >= +item.Year_Year ?
+                            +from_year || +to_year : !from_year || !to_year)
                 ).map((item) => (
                     <div className='coin' key={item.id}>
                         <Coin {...item} />

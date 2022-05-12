@@ -39,6 +39,11 @@
   background: white;
 }
 
+.main-page__Coins-filter-span {
+  text-decoration: none;
+  color: #8b8b8b;
+}
+
 .main-page__Coins-filter-button:hover {
   color: #625a5a;
   cursor: pointer;
