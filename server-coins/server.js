@@ -28,7 +28,7 @@ app.get('/commemorative_coins', (req, res) => {
     connection.query('SELECT * FROM archive_alexandr.coins;',
         (err, data) => {
             if (err) return res.status(500);
-            const result = data.filter((item)=> item.Chapter === 'Commemorative Coins')
+            const result = data.filter((item) => item.Chapter === 'Commemorative Coins')
             res.json(result);
         })
 });
@@ -37,7 +37,7 @@ app.get('/investment_coins', (req, res) => {
     connection.query('SELECT * FROM archive_alexandr.coins;',
         (err, data) => {
             if (err) return res.status(500);
-            const result = data.filter((item)=> item.Chapter === 'Investment Coins')
+            const result = data.filter((item) => item.Chapter === 'Investment Coins')
             res.json(result);
         })
 });
@@ -46,7 +46,7 @@ app.get('/exclusive_coins', (req, res) => {
     connection.query('SELECT * FROM archive_alexandr.coins;',
         (err, data) => {
             if (err) return res.status(500);
-            const result = data.filter((item)=> item.Chapter === 'Exclusive Coins')
+            const result = data.filter((item) => item.Chapter === 'Exclusive Coins')
             res.json(result);
         })
 });
@@ -71,7 +71,17 @@ app.get('/coins/:id', (req, res) => {
 
 //ответ по инпуту
 app.get('/coin/:id', (req, res) => {
-    connection.query(`SELECT * FROM archive_alexandr.coins WHERE Title = '${req.params.id}';`,
+    connection.query(`SELECT * FROM archive_alexandr.coins WHERE Title REGEXP '^${req.params.id}'
+        OR Paragraph_One REGEXP '^${req.params.id}'
+        OR Paragraph_Two REGEXP '^${req.params.id}' 
+        OR Paragraph_Three REGEXP '^${req.params.id}'
+        OR Paragraph_Four REGEXP '^${req.params.id}'
+        OR Paragraph_Five REGEXP '^${req.params.id}'
+        OR Paragraph_Six REGEXP '^${req.params.id}'
+        OR Paragraph_Seven REGEXP '^${req.params.id}'
+        OR Paragraph_Eight REGEXP '^${req.params.id}'
+        OR Paragraph_Nine REGEXP '^${req.params.id}'
+        OR Paragraph_Ten REGEXP '^${req.params.id}';`,
         (err, data) => {
             if (err) return res.status(500);
             res.json(data);
