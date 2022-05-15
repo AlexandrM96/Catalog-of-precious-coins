@@ -3,6 +3,7 @@ import '../MainPage/MainPage.css';
 import ListCoins from '../../component/ListCoins/ListCoins';
 import Search from '../../component/Search/Search';
 import { Link } from 'react-router-dom';
+import store from '../../redux/store';
 
 class ListOfTheCoins extends Component {
 
@@ -34,9 +35,17 @@ class ListOfTheCoins extends Component {
             })
     }
 
+    componentDidMount = () => {
+        store.subscribe(() => {
+            const state = store.getState();
+            state.arrCoins && this.setState({
+                data: state.arrCoins[0]
+            });
+        });
+    }
+
     render() {
         const filter = this.state.AdvancedFilterButton;
-        console.log(this.state);
         return (
             <section className='main-page'>
                 <div className='main-page__container'>

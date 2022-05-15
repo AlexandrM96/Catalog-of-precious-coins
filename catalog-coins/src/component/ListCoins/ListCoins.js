@@ -12,21 +12,32 @@ class ListCoins extends Component {
     componentDidMount = () => {
         store.subscribe(() => {
             const state = store.getState();
-            state.newCoins && this.setState({
-                data: state.newCoins[0]
+            state.arrCoins && this.setState({
+                data: state.arrCoins
             });
         });
+        store.dispatch({
+            type: 'AD',
+            payload: {
+                a: 'dd',
+            }
+        })
     }
 
     click = () => {
-        console.log('dataaa', +this.state.data);// показывает стейт
+        console.log('dataaa', this.state.data);// показывает
+        store.dispatch({
+            type: 'AD',
+            payload: {
+                a: 'dd',
+            }
+        })
     }
     
     render() {
         const coins = this.state.data;
         const { metal, country, quality, from_price, to_price, from_year, to_year } = this.props;
-        console.log('propssss', this.props);
-        console.log('prase', +from_price);
+        console.log('dataaa', this.state.data)
         return (
             <div className='list-coins'>
                 {/* <button onClick={this.click}>тест стейта</button> */}

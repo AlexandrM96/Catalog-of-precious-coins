@@ -13,11 +13,17 @@ class CoinPage extends Component {
         
         store.subscribe(() => {
             const state = store.getState();
-            state.newCoinTwo &&
+            state.idCoin &&
                 this.setState({
-                    data: state.newCoinTwo[0]
+                    data: state.idCoin
                 });
         });
+        store.dispatch({
+            type: 'AD',
+            payload: {
+                a: 'dd',
+            }
+        })
     }
 
     render() {

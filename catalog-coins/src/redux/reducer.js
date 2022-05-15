@@ -1,21 +1,29 @@
+
 const initialState = {
     arrCoins: [],
-    idCoin: []
+    idCoin: [],
+    ADD: 'ad'
 }
 
 function reducer(state = initialState, action) {
+    console.log('wwwwww',state, action);
     switch (action.type) {
         case 'ADD_API_COINS':
             const apiOne = action.payload.Coins;
-            const newCoins = [...state.arrCoins, apiOne];
-            console.log(newCoins, state.newCoinsTwo);
-            return { ...state, newCoins }
+            console.log('asassasas',apiOne);
+            state.arrCoins = apiOne;
+            // const newCoins = [...state.arrCoins, apiOne];
+            return { ...state, ...state.arrCoins}
         case 'ADD_API_ID_COIN':
             const apiTwo = action.payload.IdCoin;
-            const newCoinTwo = [...state.idCoin, apiTwo];
-            console.log(state.newCoins, state.newCoinsTwo);
-            return { ...state, newCoinTwo }
+            state.idCoin = apiTwo;
+            // const newCoinTwo = [...state.idCoin, apiTwo];
+            return { ...state, ...state.idCoin }
+            case 'AD':
+                const ad = action.payload.a;
+                return { ...state, ...state.ADD }
         default:
+            console.log('ddd', state);
             return state;
     }
 }

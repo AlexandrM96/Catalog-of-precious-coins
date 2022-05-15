@@ -1,6 +1,13 @@
 import store from "../redux/store";
+import { connect } from "react-redux";
+import { addCoins } from "../redux/action";
 
 //общий запрос
+
+//  const mapDispatchToProps = dispatch => ({
+//     addCoins: (dataArray) => dispatch(addCoins(dataArray))
+//   })
+
 export function ApiRequestListCoins(adress) {
     
     const url = `http://localhost:5000/${adress}`;
