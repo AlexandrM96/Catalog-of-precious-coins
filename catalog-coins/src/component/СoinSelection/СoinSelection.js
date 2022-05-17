@@ -22,7 +22,6 @@ class СoinSelection extends Component {
     commemorativeCoins = () => {
         const adress = 'commemorative_coins';
          return ApiRequestListCoins(adress);
-
     }
 
     render() {

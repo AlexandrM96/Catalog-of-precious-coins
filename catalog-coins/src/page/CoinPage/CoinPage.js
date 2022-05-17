@@ -1,33 +1,18 @@
 import React, { Component } from 'react';
 import './CoinPage.css';
-import store from '../../redux/store';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+
+const mapStateToProps = (state) => {
+    return {
+        data: state.idCoin
+    };
+};
 
 class CoinPage extends Component {
 
-    state = {
-        data: []
-    }
-
-    componentDidMount = () => {
-        
-        store.subscribe(() => {
-            const state = store.getState();
-            state.idCoin &&
-                this.setState({
-                    data: state.idCoin
-                });
-        });
-        store.dispatch({
-            type: 'AD',
-            payload: {
-                a: 'dd',
-            }
-        })
-    }
-
     render() {
-        const coin = this.state.data;
+        const coin = this.props.data;
         return (
             <>
                 {coin && coin.map((item) =>
@@ -93,4 +78,4 @@ class CoinPage extends Component {
     }
 }
 
-export default CoinPage;
+export default connect(mapStateToProps)(CoinPage);
