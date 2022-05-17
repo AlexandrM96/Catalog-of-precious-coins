@@ -90,7 +90,6 @@ app.get('/coin/:id', (req, res) => {
 
 //фильтрация по стоимости
 app.get('/coinsprice/:from/:to', (req, res) => {
-    console.log(req.params);
     connection.query(`SELECT * FROM archive_alexandr.coins WHERE Price BETWEEN '${req.params.from}$' AND '${req.params.to}$';`,
         (err, data) => {
             if (err) return res.status(500);
@@ -100,7 +99,6 @@ app.get('/coinsprice/:from/:to', (req, res) => {
 
 //фильтрация по году 
 app.get('/coinsyear/:from/:to', (req, res) => {
-    console.log(req.params);
     connection.query(`SELECT * FROM archive_alexandr.coins WHERE Year_Year BETWEEN '${req.params.from}' AND '${req.params.to}';`,
         (err, data) => {
             if (err) return res.status(500);
@@ -110,7 +108,6 @@ app.get('/coinsyear/:from/:to', (req, res) => {
 
 //фильтрация по году и стоимости
 app.get('/coinsYearAndPrice/:fromP/:toP/:fromY/:toY', (req, res) => {
-    console.log(req.params);
     connection.query(`SELECT * FROM archive_alexandr.coins WHERE Year_Year BETWEEN '${req.params.fromY}' AND '${req.params.toY}'
     AND Price BETWEEN '${req.params.fromP}' AND '${req.params.toP}';`,
         (err, data) => {
@@ -126,3 +123,5 @@ app.listen(5000, function () {
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+
