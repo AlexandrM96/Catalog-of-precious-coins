@@ -88,34 +88,6 @@ app.get('/coin/:id', (req, res) => {
         })
 });
 
-//фильтрация по стоимости
-app.get('/coinsprice/:from/:to', (req, res) => {
-    connection.query(`SELECT * FROM archive_alexandr.coins WHERE Price BETWEEN '${req.params.from}$' AND '${req.params.to}$';`,
-        (err, data) => {
-            if (err) return res.status(500);
-            res.json(data);
-        })
-});
-
-//фильтрация по году 
-app.get('/coinsyear/:from/:to', (req, res) => {
-    connection.query(`SELECT * FROM archive_alexandr.coins WHERE Year_Year BETWEEN '${req.params.from}' AND '${req.params.to}';`,
-        (err, data) => {
-            if (err) return res.status(500);
-            res.json(data);
-        })
-});
-
-//фильтрация по году и стоимости
-app.get('/coinsYearAndPrice/:fromP/:toP/:fromY/:toY', (req, res) => {
-    connection.query(`SELECT * FROM archive_alexandr.coins WHERE Year_Year BETWEEN '${req.params.fromY}' AND '${req.params.toY}'
-    AND Price BETWEEN '${req.params.fromP}' AND '${req.params.toP}';`,
-        (err, data) => {
-            if (err) return res.status(500);
-            res.json(data);
-        })
-});
-
 
 app.listen(5000, function () {
     console.log('Example app listening on port 5000!!!');
