@@ -25,7 +25,7 @@ class ListCoins extends Component {
     }
 
     click = () => {
-        console.log('dataaa', this.state.data);// показывает
+        console.log('dataaa', this.state.data);
         store.dispatch({
             type: 'AD',
             payload: {

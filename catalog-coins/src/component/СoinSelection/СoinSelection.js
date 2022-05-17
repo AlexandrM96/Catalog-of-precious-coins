@@ -16,12 +16,12 @@ class СoinSelection extends Component {
 
     exclusiveCoins = () => {
         const adress = 'exclusive_coins';
-        return this.ApiRequestListCoins(adress);
+        return ApiRequestListCoins(adress);
      }
 
     commemorativeCoins = () => {
         const adress = 'commemorative_coins';
-         return this.ApiRequestListCoins(adress);
+         return ApiRequestListCoins(adress);
 
     }
 

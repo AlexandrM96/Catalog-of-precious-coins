@@ -10,7 +10,6 @@ function reducer(state = initialState, action) {
     switch (action.type) {
         case 'ADD_API_COINS':
             const apiOne = action.payload.Coins;
-            console.log('asassasas',apiOne);
             state.arrCoins = apiOne;
             // const newCoins = [...state.arrCoins, apiOne];
             return { ...state, ...state.arrCoins}
