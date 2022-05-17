@@ -1,43 +1,57 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import './ListCoins.css';
 import store from '../../redux/store';
 import Coin from '../Coin/Coin';
 
+const mapStateToProps = (state) => {
+    return {
+        data: state.arrCoins
+    };
+};
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        add: () => dispatch({
+            type: 'AD',
+            payload: {
+                a: 'dd',
+            }
+        })
+    }
+};
+
 class ListCoins extends Component {
 
-    state = {
-        data: []
-    }
+    // state = {
+    //     data: []
+    // }
 
-    componentDidMount = () => {
-        store.subscribe(() => {
-            const state = store.getState();
-            state.arrCoins && this.setState({
-                data: state.arrCoins
-            });
-        });
-        store.dispatch({
-            type: 'AD',
-            payload: {
-                a: 'dd',
-            }
-        })
-    }
+    // componentDidMount = () => {
+    //     store.subscribe(() => {
+    //         const state = store.getState();
+    //         state.arrCoins && this.setState({
+    //             data: state.arrCoins
+    //         });
+    //     });
+    //     store.dispatch({
+    //         type: 'AD',
+    //         payload: {
+    //             a: 'dd',
+    //         }
+    //     })
+    // }
+    // TODO: What is the 'AD' dispatcher?
 
     click = () => {
-        console.log('dataaa', this.state.data);
-        store.dispatch({
-            type: 'AD',
-            payload: {
-                a: 'dd',
-            }
-        })
+        console.log('dataaa', this.props.data);
+        this.props.add();
     }
     
     render() {
-        const coins = this.state.data;
+        const coins = this.props.data;
         const { metal, country, quality, from_price, to_price, from_year, to_year } = this.props;
-        console.log('dataaa', this.state.data)
+        console.log('dataaa', this.props.data)
         return (
             <div className='list-coins'>
                 {/* <button onClick={this.click}>тест стейта</button> */}
@@ -64,4 +78,4 @@ class ListCoins extends Component {
     }
 }
 
-export default ListCoins;
+export default connect(mapStateToProps, mapDispatchToProps)(ListCoins);
