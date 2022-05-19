@@ -8,29 +8,11 @@ const addIdCoin = {
     text: 'Id Coins'
 }
 
-// export function addCoins(data) {
-//     return {
-//         type: 'ADD_API_COINS',
-//       payload: {
-//         Coins: data
-//       }
-//     }
-//   }
-  
-//   export function addIdCoin() {
-//     return {
-//         type: 'ADD_API_ID_COIN',
-//       payload: {
-//         id: id
-//       }
-//     }
-//   }
-
-//   export function ad() {
-//     return {
-//         type: 'AD',
-//       payload: {
-//         id: id
-//       }
-//     }
-//   }
+export function advancedFilter(filter) {
+    return {
+      type: 'FILTER_COINS',
+      payload: {
+       advancedFilter: filter
+      }
+    }
+  }

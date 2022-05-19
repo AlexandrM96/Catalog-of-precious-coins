@@ -5,7 +5,8 @@ import Coin from '../Coin/Coin';
 
 const mapStateToProps = (state) => {
     return {
-        data: state.arrCoins
+        data: state.arrCoins,
+        filter: state.filter
     };
 };
 
@@ -13,7 +14,7 @@ class ListCoins extends Component {
 
     render() {
         const coins = this.props.data;
-        const { metal, country, quality, from_price, to_price, from_year, to_year } = this.props;
+        const { metal, country, quality, from_price, to_price, from_year, to_year } = this.props.filter;
         return (
             <div className='list-coins'>
                 {coins && coins.filter((item) =>

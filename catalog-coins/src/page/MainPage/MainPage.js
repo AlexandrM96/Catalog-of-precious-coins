@@ -2,25 +2,13 @@ import React, { Component } from 'react';
 import './MainPage.css';
 import СoinSelection from '../../../src/component/СoinSelection/СoinSelection';
 import Search from '../../component/Search/Search';
+import AdvancedFilter from '../../component/AdvancedFilter/AdvancedFilter';
 
 class MainPage extends Component {
 
     state = {
-        AdvancedFilterButton: false,
-        quality: "",
-        country: "",
-        metal: "",
-        from_year: 1,
-        to_year: 2023,
-        from_price: 1,
-        to_price: 2000,
+        AdvancedFilterButton: false
     }
-
-    searhCoin = (e) => {
-        this.setState({
-            [e.target.name]: e.target.value
-        });
-    };
 
     clickAdvancedFilterButton = () => {
         this.state.AdvancedFilterButton === false ?
@@ -40,7 +28,7 @@ class MainPage extends Component {
                 <div className='main-page__container'>
                     <h1 className='main-page__title'>Homepage</h1>
                     <div className='main-page__form-container'>
-                        <Search {...this.state} />
+                        <Search />
                     </div>
                     <div className='main-page__Coins-filter'>
                         <button
@@ -57,89 +45,7 @@ class MainPage extends Component {
                     {filter === false ?
                         <СoinSelection />
                         :
-                        <div className='main-page__advanced-filter'>
-                            <div className='main-page__advanced-filter-block'>
-                                <form className='main-page__advanced-filter-form'>
-                                    <h5 className='main-page__advanced-filter-title'>Issuing country</h5>
-                                    <select className='main-page__advanced-filter-select'>
-                                        <option value="Issuing country">Issuing country</option>
-                                        <option value="CANADA">Canada</option>
-                                        <option value="China">China</option>
-                                        <option value="cat">Cat</option>
-                                        <option value="hamster">Hamster</option>
-                                        <option value="Costa Rica">Costa Rica</option>
-                                        <option value="Yemen">Yemen</option>
-                                        <option value="Portugal">Portugal</option>
-                                        <option value="Iran">Iran</option>
-                                        <option value="India">India</option>
-                                        <option value="UNITED STATES OF AMERICA">UNITED STATES OF AMERICA</option>
-                                        <option value="Egypt">Egypt</option>
-                                        <option value="the Weimar Republic">the Weimar Republic</option>
-                                        <option value="Ghana">Ghana</option>
-                                        <option value="British Virgin Islands">British Virgin Islands</option>
-                                        <option value="Bolivia">Bolivia</option>
-                                        <option value="Botswana">Botswana</option>
-                                        <option value="Australia">Australia</option>
-                                        <option value="France">France</option>
-                                        <option value="the Belgian Congo">the Belgian Congo</option>
-                                        <option value="Estonia">Estonia</option>
-                                        <option value="British South Africa">British South Africa</option>
-                                        <option value="the Republic of Vietnam">the Republic of Vietnam</option>
-                                    </select>
-                                    <h5 className='main-page__advanced-filter-title'>Metal</h5>
-                                    <select className='main-page__advanced-filter-select'>
-                                        <option value="Metal">Metal</option>
-                                        <option value="gold">Gold</option>
-                                        <option value="nickel">Nickel</option>
-                                        <option value="steel">Steel</option>
-                                        <option value="silver">Silver</option>
-                                    </select>
-                                    <h5 className='main-page__advanced-filter-title'>Quality of the coin</h5>
-                                    <select className='main-page__advanced-filter-select'>
-                                        <option value="Quality of the coin">Quality of the coin</option>
-                                        <option value="BU">BU</option>
-                                    </select>
-                                </form>
-                            </div>
-                            <div className='main-page__advanced-filter-block'>
-                                <form className='main-page__advanced-filter-form'>
-                                    <h5 className='main-page__advanced-filter-title'>Price</h5>
-                                    <div className='main-page__advanced-filter-form-block'>
-                                        <div className='main-page__advanced-filter-form-input-block'>
-                                            from <input
-                                                type='number'
-                                                name='from_price'
-                                                onChange={this.searhCoin}
-                                                className='main-page__advanced-filter-form-input' />
-                                        </div>
-                                        <div className='main-page__advanced-filter-form-input-block'>
-                                            to <input
-                                                type='number'
-                                                name='to_price'
-                                                onChange={this.searhCoin}
-                                                className='main-page__advanced-filter-form-input' />
-                                        </div>
-                                    </div>
-                                    <h5 className='main-page__advanced-filter-title'>Year of issue</h5>
-                                    <div className='main-page__advanced-filter-form-block'>
-                                        <div className='main-page__advanced-filter-form-input-block'>
-                                            from <input
-                                                type='number'
-                                                name='from_year'
-                                                onChange={this.searhCoin}
-                                                className='main-page__advanced-filter-form-input' />
-                                        </div>
-                                        <div className='main-page__advanced-filter-form-input-block'>
-                                            to <input
-                                                type='number'
-                                                name='to_year'
-                                                onChange={this.searhCoin}
-                                                className='main-page__advanced-filter-form-input' />
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
+                        <AdvancedFilter />
                     }
                 </div>
             </section>
