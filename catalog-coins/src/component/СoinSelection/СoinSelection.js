@@ -17,11 +17,11 @@ class СoinSelection extends Component {
     exclusiveCoins = () => {
         const adress = 'exclusive_coins';
         return ApiRequestListCoins(adress);
-     }
+    }
 
     commemorativeCoins = () => {
         const adress = 'commemorative_coins';
-         return ApiRequestListCoins(adress);
+        return ApiRequestListCoins(adress);
     }
 
     render() {

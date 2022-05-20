@@ -8,7 +8,7 @@ import { connect } from 'react-redux';
 
 const mapStateToProps = (state) => {
     return {
-        AdvancedFilterButton:state.button
+        AdvancedFilterButton: state.button
     };
 };
 

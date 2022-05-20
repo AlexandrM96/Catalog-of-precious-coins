@@ -7,7 +7,7 @@ class Coin extends Component {
 
     requestCountId = () => {
         const id = this.props.id;
-        ApiRequestListCoinsId(id)
+        return ApiRequestListCoinsId(id)
     }
 
     render() {
